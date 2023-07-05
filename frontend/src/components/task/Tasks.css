@@ -1,0 +1,17 @@
+.tasks {
+    width: 100%;
+
+}
+
+.cl {
+    width: 100%;
+}
+
+.hr {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.header {
+    padding: 10px 0px;
+    font-size: 1.8rem;
+}
