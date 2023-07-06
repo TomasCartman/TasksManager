@@ -6,7 +6,7 @@ const main = props =>
     <main className='content'>
         <div className='header'>{props.header}</div>
         <hr className='cl' />
-        <Tasks {...props} />
+        {props.children}
     </main>
 
 export default main

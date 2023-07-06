@@ -1,12 +1,16 @@
 import './App.css'
 import React from "react"
+import { BrowserRouter } from 'react-router-dom'
+
+import Routes from './Routes'
 import Nav from '../components/templates/Nav'
-import Main from '../components/templates/Main'
 
 const app = props =>
-    <div className="app">
-        <Nav />
-        <Main header="Tarefas Não Concluídas" />
-    </div>
+    <BrowserRouter>
+        <div className="app">
+            <Nav />
+            <Routes />
+        </div>
+    </BrowserRouter>
 
 export default app
