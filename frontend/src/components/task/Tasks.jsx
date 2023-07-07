@@ -2,7 +2,7 @@ import './Tasks.css'
 import React, { Component } from 'react'
 import Task from './Task'
 import Main from '../templates/Main'
-import axios from 'axios'
+import repository from '../../controller/repository'
 
 const initialState = {
     tasks: [],
@@ -19,7 +19,7 @@ export default class Tasks extends Component {
     }
 
     getTasks() {
-        axios.get('http://localhost:3001/tasks')
+        repository.getTasks()
             .then(resp => {
                 const respTasks = resp.data
                 const tasks = respTasks.filter(task => task.isFinished === this.state.isCompletedTasks)
@@ -29,13 +29,13 @@ export default class Tasks extends Component {
 
     setTaskAsFinished(task) {
         task.isFinished = true
-        axios.put(`http://localhost:3001/tasks/${task.id}`, task)
+        repository.putTask(task)
         const list = this.state.tasks.filter(task => task.isFinished === this.state.isCompletedTasks)
         this.setState({ tasks: list })
     }
 
     deleteTask(id) {
-        axios.delete(`http://localhost:3001/tasks/${id}`)
+        repository.deleteTask(id)
         const list = this.state.tasks.filter(task => task.id !== id)
         this.setState({ tasks: list })
     }
@@ -62,8 +62,7 @@ export default class Tasks extends Component {
     }
 
     render() {
-        const isCompletedTasks = window.location.pathname === '/tasks' ? false : true
-        const headerName = isCompletedTasks ? 'Tarefas Concluídas' : 'Tarefas Não Concluídas'
+        const headerName = this.state.isCompletedTasks ? 'Tarefas Concluídas' : 'Tarefas Não Concluídas'
 
         return (
             <Main header={headerName} >

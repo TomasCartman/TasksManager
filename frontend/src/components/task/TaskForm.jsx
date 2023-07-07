@@ -1,7 +1,7 @@
 import './TaskForm.css'
 import React, { Component } from 'react'
 import Main from '../templates/Main'
-import axios from 'axios'
+import repository from '../../controller/repository'
 
 const initialState = {
     title: '',
@@ -26,17 +26,13 @@ export default class TaskForm extends Component {
 
     save() {
         const task = {...this.state}
-        const date = new Date()
-        const dateArr = date.toLocaleString('pt-br').split(' ')
-        task.createDate = dateArr[0].slice(0, dateArr[0].length-1)
-        task.createTime = dateArr[1]
-        axios.post('http://localhost:3001/tasks', task)
+        repository.postTask(task)
             .then(resp => {
                 if(resp.status >= 200 && resp.status < 300) {
                     // Success
+                    console.log('Success')
                     this.setState({ ...initialState })
                 }
-                console.log(resp)
             })
     }
 
