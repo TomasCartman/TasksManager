@@ -10,11 +10,6 @@ const task = props =>
             <p>{props.creationDate}</p>
             <p>{props.creationTime}</p>
         </div>
-        <div className='button-group'>
-            <button className='green'>Concluida</button>
-            <button className='yellow'>Editar</button>
-            <button className='red'>Remover</button>
-        </div>
     </div>
 
 export default task
