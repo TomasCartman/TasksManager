@@ -8,6 +8,7 @@ const routes = props =>
     <Routes>
         <Route exact path='/' element={<Tasks />}  />  
         <Route path='/newTask' element={<TaskForm />} />
+        <Route path='/tasksDone' element={<Tasks />} />
         <Route path='*' element={<Tasks />} />
     </Routes>
 

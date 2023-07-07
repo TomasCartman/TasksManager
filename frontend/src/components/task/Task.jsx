@@ -5,10 +5,10 @@ const task = props =>
     <div className='task'>
         <div className='title'>{props.title}</div>
         <hr className='hw' />
-        <div className='task-content'>{props.taskContent}</div>
+        <div className='task-content'>{props.task}</div>
         <div className='time'>
-            <p>{props.creationDate}</p>
-            <p>{props.creationTime}</p>
+            <p>{props.createDate}</p>
+            <p>{props.createTime}</p>
         </div>
     </div>
 

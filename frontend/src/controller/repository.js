@@ -22,4 +22,6 @@ function postTask(task) {
     return axios.post(`${baseUrl}`, task)
 }
 
-export default { getTasks, putTask, deleteTask, postTask }
+const exports = { getTasks, putTask, deleteTask, postTask }
+
+export default exports

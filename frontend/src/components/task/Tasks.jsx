@@ -2,6 +2,7 @@ import './Tasks.css'
 import React, { Component } from 'react'
 import Task from './Task'
 import Main from '../templates/Main'
+import Button from '../templates/Button'
 import repository from '../../controller/repository'
 
 const initialState = {
@@ -18,11 +19,13 @@ export default class Tasks extends Component {
         this.getTasks()
     }
 
+    filteredByCompleteTasks = task => task.isFinished === this.state.isCompletedTasks
+
     getTasks() {
         repository.getTasks()
             .then(resp => {
                 const respTasks = resp.data
-                const tasks = respTasks.filter(task => task.isFinished === this.state.isCompletedTasks)
+                const tasks = respTasks.filter(this.filteredByCompleteTasks)
                 this.setState({ tasks })
             })
     }
@@ -30,7 +33,7 @@ export default class Tasks extends Component {
     setTaskAsFinished(task) {
         task.isFinished = true
         repository.putTask(task)
-        const list = this.state.tasks.filter(task => task.isFinished === this.state.isCompletedTasks)
+        const list = this.state.tasks.filter(this.filteredByCompleteTasks)
         this.setState({ tasks: list })
     }
 
@@ -45,19 +48,28 @@ export default class Tasks extends Component {
             this.state.tasks.map(task => {
                 return (
                     <div className='tasks' key={task.id}>
-                        <Task title={task.title} taskContent={task.task}
-                            creationDate={task.createDate} creationTime={task.createTime} />
-                        <div className='button-group'>
-                            <button type='button' className='green'
-                                onClick={() => this.setTaskAsFinished(task)}>Concluida</button>
-                            <button type='button' className='yellow'>Editar</button>
-                            <button type='button' className='red'
-                                onClick={() => this.deleteTask(task.id)} >Remover</button>
-                        </div>
+                        <Task {...task} />
+                            {this.renderButtons(task)}
                         <hr className='cl hr' />
                     </div>
                 )
             })
+        )
+    }
+
+    renderButtons(task) {
+        return (
+            <div className='button-group'>
+
+                {this.state.isCompletedTasks ? '' :
+                    <Button label="Concluído" className="green"
+                        onClick={() => this.setTaskAsFinished(task)} />}
+
+                {this.state.isCompletedTasks ? '' : <Button label="Editar" className="yellow" />}
+
+                <Button label="Excluir" className="red"
+                    onClick={() => this.deleteTask(task.id)} />
+            </div>
         )
     }
 

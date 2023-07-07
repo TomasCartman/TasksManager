@@ -1,6 +1,7 @@
 import './TaskForm.css'
 import React, { Component } from 'react'
 import Main from '../templates/Main'
+import Button from '../templates/Button'
 import repository from '../../controller/repository'
 
 const initialState = {
@@ -48,10 +49,10 @@ export default class TaskForm extends Component {
                         <textarea name='task' onChange={e => this.handleInput(e)} 
                             value={this.state.task} ></textarea>
                         <div className='button-group'>
-                            <button type='button' className='green' 
-                                onClick={() => this.save()} >Adicionar</button>
-                            <button type='button' className='red'
-                                onClick={() => this.clear()}>Cancelar</button>
+                            <Button className='green' label="Adicionar"
+                                onClick={() => this.save()} />
+                            <Button className='red' label="Cancelar"
+                                onClick={() => this.clear()} />
                         </div>
                     </form>
                 </div>

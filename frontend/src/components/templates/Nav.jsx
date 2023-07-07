@@ -1,9 +1,6 @@
 import './Nav.css'
 import React from "react"
-
-// Tarefas a concluir
-// Tarefas concluídas
-// Criar tarefa
+import { Link } from 'react-router-dom'
 
 const nav = props =>
     <aside className='menu-area'>

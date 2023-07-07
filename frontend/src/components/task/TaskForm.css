@@ -35,3 +35,20 @@
     justify-content: center;
     margin-top: 20px;
 }
+
+.button-group {
+    display: flex;
+}
+
+.button-group button {
+    margin-right: 10px;
+    padding: 10px;
+    border: solid 1px transparent;
+    line-height: 1.5rem;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    font-weight: 400;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
