@@ -1,6 +1,17 @@
 :root {
     --aside-width: 200px;
-    --aside-height: 600px;
+    --aside-height: 153px;
+
+    --top-height: 50px;
+    --top-width: 482px;
+    --top-width-small: 362px;
+
+    --font-size-xlarge: 1.8rem;
+    --font-size-large: 1.4rem;
+    --font-size-medium: 1.2rem;
+    --font-size-small: 1.0rem;
+    --font-size-xsmall: 0.8rem;
+
 
     --shadow:
         0 2px 23px 0 rgba(0, 0, 0, 0.1),
@@ -24,4 +35,16 @@ aside.menu-area {
 
 main.content {
     grid-area: content;
+}
+
+@media (max-width:900px) {
+    .app { 
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: var(--top-height) 1fr;
+        grid-template-areas: 
+            "menu"
+            "content";
+    }
+
 }

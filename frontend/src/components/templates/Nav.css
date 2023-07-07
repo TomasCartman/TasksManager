@@ -16,10 +16,55 @@ aside.menu-area {
     text-align: center;
 }
 
-.menu a:hover {
+.menu a:hover, a:active {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.menu a:first-child:hover {
+.menu a:first-child:hover, a:first-child:active {
     border-top-right-radius: 20px
+}
+
+.menu a:last-child:hover, a:last-child:active  {
+    border-bottom-right-radius: 20px;
+}
+
+@media (max-width:900px) {
+    aside.menu-area {
+        justify-self: center;
+    }
+
+    aside.menu-area {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: var(--top-width);
+        height: var(--top-height);
+        border-radius: 0px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    aside.menu-area .menu {
+        display: flex;
+    }
+
+    .menu a:first-child:hover, a:first-child:active {
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 0px;
+    }
+
+    .menu a {
+        font-size: var(--font-size-small);
+    }
+}
+
+@media (max-width: 500px) {
+    .menu a {
+        font-size: var(--font-size-xsmall);
+        padding: 15px 8px;
+    }
+
+    aside.menu-area {
+        width: var(--top-width-small);
+    }
 }

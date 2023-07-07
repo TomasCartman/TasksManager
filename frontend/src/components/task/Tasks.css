@@ -14,5 +14,12 @@
 
 .header {
     padding: 10px 0px;
-    font-size: 1.8rem;
+    font-size: var(--font-size-xlarge);
+}
+
+@media (max-width: 900px) {
+    .header {
+        padding: 8px 0px;
+        font-size: var(--font-size-large);
+    }
 }

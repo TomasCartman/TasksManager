@@ -79,6 +79,7 @@ export default class Tasks extends Component {
         return (
             <Main header={headerName} >
                 {this.renderTasks()}
+                {this.state.tasks.length === 0 ? 'Nenhuma tarefa nesta lista.' : ''}
             </Main>
         )
     }

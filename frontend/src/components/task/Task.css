@@ -9,15 +9,16 @@
 
 .time {
     align-self: flex-end;
+    font-size: var(--font-size-small);
 }
 
 .task-content {
     align-self: flex-start;
-    font-size: 1.1rem;
+    font-size: var(--font-size-medium);
 }
 
 .title {
-    font-size: 1.4rem;
+    font-size: var(--font-size-large);
 }
 
 .hw {
@@ -31,4 +32,18 @@
     display: block;
     margin: 0px;
     text-align: center;
+}
+
+@media (max-width: 900px) {
+    .task-content {
+        font-size: var(--font-size-small);
+    }
+
+    .title {
+        font-size: var(--font-size-medium);
+    }
+
+    .time {
+        font-size: var(--font-size-xsmall);
+    }
 }

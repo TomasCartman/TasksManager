@@ -10,6 +10,14 @@
     margin: 80px;
     padding: 20px;
     border-radius: 20px;
-    height: 800px;
+    height: 80%;
     box-shadow: var(--shadow);
+}
+
+@media (max-width:900px) {
+    .content {
+        align-self: flex-start;
+        margin: 20px;
+        margin-top: 20px;
+    }
 }
