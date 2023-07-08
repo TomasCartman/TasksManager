@@ -1,4 +1,5 @@
 import axios from 'axios'
+import utils from './utils'
 
 const baseUrl = 'http://localhost:3001/tasks'
 
@@ -6,8 +7,13 @@ function getTasks() {
     return axios.get(baseUrl)
 }
 
+function getTask(id) {
+    return axios.get(`${baseUrl}/${id}`)
+}
+
 function putTask(task) {
-    return axios.put(`${baseUrl}/${task.id}`, task)
+    const taskWithDate = utils.putDateToTask(task)
+    return axios.put(`${baseUrl}/${taskWithDate.id}`, taskWithDate)
 }
 
 function deleteTask(id) {
@@ -15,13 +21,10 @@ function deleteTask(id) {
 }
 
 function postTask(task) {
-    const date = new Date()
-    const dateArr = date.toLocaleString('pt-br').split(' ')
-    task.createDate = dateArr[0].slice(0, dateArr[0].length-1)
-    task.createTime = dateArr[1]
-    return axios.post(`${baseUrl}`, task)
+    const taskWithDate = utils.putDateToTask(task)
+    return axios.post(`${baseUrl}`, taskWithDate)
 }
 
-const exports = { getTasks, putTask, deleteTask, postTask }
+const exports = { getTasks, getTask, putTask, deleteTask, postTask }
 
 export default exports

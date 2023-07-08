@@ -43,6 +43,12 @@ export default class Tasks extends Component {
         this.setState({ tasks: list })
     }
 
+    setLocalStorageAndNavigate(id) {
+        localStorage.setItem('id', id)
+
+        window.location.pathname = '/newTask'
+    }
+
     renderTasks() {
         return (
             this.state.tasks.map(task => {
@@ -65,7 +71,9 @@ export default class Tasks extends Component {
                     <Button label="Concluído" className="green"
                         onClick={() => this.setTaskAsFinished(task)} />}
 
-                {this.state.isCompletedTasks ? '' : <Button label="Editar" className="yellow" />}
+                {this.state.isCompletedTasks ? '' : 
+                    <Button label="Editar" className="yellow" 
+                        onClick={() => this.setLocalStorageAndNavigate(task.id)}/>}
 
                 <Button label="Excluir" className="red"
                     onClick={() => this.deleteTask(task.id)} />
