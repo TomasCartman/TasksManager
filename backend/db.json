@@ -1,52 +1,36 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "title": "Título",
-      "task": "fazer tal coisa",
-      "createDate": "05/07/2023",
-      "createTime": "15:11:21",
-      "isFinished": true
-    },
-    {
-      "id": 2,
-      "title": "Título 2",
-      "task": "fazer outra coisa",
-      "createDate": "04/07/2023",
-      "createTime": "09:30:53",
-      "isFinished": true
-    },
-    {
-      "title": "titulo 3",
-      "task": "task 3",
+      "title": "Arrumar a casa",
+      "task": "Arrumar a casa e todos os seus cômodos.\nOrganizar a mesa e demais coisas e limpar a casa.",
       "isFinished": true,
-      "createDate": "06/07/2023",
-      "createTime": "21:25:44",
+      "id": 1,
+      "createDate": "08/07/2023",
+      "createTime": "18:21:29"
+    },
+    {
+      "title": "Lavar roupa",
+      "task": "Lavar roupa",
+      "isFinished": true,
+      "createDate": "08/07/2023",
+      "createTime": "16:30:08",
+      "id": 2
+    },
+    {
+      "title": "Estudar Javascript",
+      "task": "Estudar Javascript e algum framework por 2 horas após o almoço.",
+      "isFinished": true,
+      "createDate": "12/07/2023",
+      "createTime": "23:01:06",
       "id": 3
     },
     {
-      "title": "titulo 5",
-      "task": "task 5",
-      "isFinished": true,
-      "createDate": "06/07/2023",
-      "createTime": "21:30:32",
-      "id": 5
-    },
-    {
-      "title": "Tarefa 7",
-      "task": "Task 7",
-      "isFinished": true,
-      "id": 7,
-      "createDate": "08/07/2023",
-      "createTime": "15:05:58"
-    },
-    {
-      "title": "Tarefa 8.91",
-      "task": "Task 8.12312",
+      "title": "Alguma outra tarefa",
+      "task": "Descrição de alguma outra tarefa que precisa ser feita.",
       "isFinished": false,
-      "id": 8,
-      "createDate": "08/07/2023",
-      "createTime": "15:06:12"
+      "createDate": "12/07/2023",
+      "createTime": "23:00:36",
+      "id": 4
     }
   ]
 }
